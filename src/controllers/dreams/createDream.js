@@ -13,9 +13,13 @@ const createDream = async (req, res) => {
 
         await dream.save()
 
+        res.status(200)
         res.send(dream)
     } catch (error) {
-        
+        if (error.name === "ValidationError") res.status(400)
+        else res.status(500)
+
+        res.send(error)
     }
 }
 

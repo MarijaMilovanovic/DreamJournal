@@ -1,4 +1,5 @@
 import mongoose, { Schema } from "mongoose";
+import MongooseDelete from "mongoose-delete";
 import mongoosePaginate from 'mongoose-paginate-v2'
 import DREAM_TYPE from "../enums/dreamType";
 
@@ -25,5 +26,6 @@ const dreamSchema = new Schema(
 )
 
 dreamSchema.plugin(mongoosePaginate)
+dreamSchema.plugin(MongooseDelete)
 
 export default mongoose.model('dream', dreamSchema)
