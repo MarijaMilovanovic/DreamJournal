@@ -1,11 +1,11 @@
 import Dream from "../../models/Dream"
 
 const getDreams = async (req, res, next) => {
-	const { id, search, startDate, endDate, type, name, sortField, sortDirection, page, limit } = req.query
+	const { id, search, startDate, endDate, type, title, sortField, sortDirection, page, limit } = req.query
 
 	let query = {}
 	if (id) query = { _id: id }
-	else if (search || startDate || endDate || type || name)
+	else if (search || startDate || endDate || type || title)
 	{
 		query = {
 			$and: [
@@ -38,7 +38,7 @@ const getDreams = async (req, res, next) => {
 
 		if (type) query.$and.push({type})
 
-		if (name) query.$and.push({name})
+		if (title) query.$and.push({title})
 	}
 	else query = { deleted: false }
 
