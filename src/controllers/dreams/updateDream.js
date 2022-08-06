@@ -1,11 +1,11 @@
 import Dream from "../../models/Dream"
 
-const updateDream = async (req, res) => {
-    const {id, title, description, date, type} = req.body
+const updateDream = async (req, res, next) => {
+    const { id, title, description, date, type } = req.body
 
     try {
         const response = await Dream.updateOne(
-            {_id: id},
+            { _id: id },
             {
                 $set: {
                     title,
@@ -18,20 +18,16 @@ const updateDream = async (req, res) => {
 
         res.status(200)
 
-        if (response.modifiedCount)
-        {
+        if (response.modifiedCount) {
             const updatedDream = await Dream.findById(id)
             res.send(updatedDream)
         }
-        else
-        {
+        else {
             res.send(response)
         }
     } catch (error) {
-        res.status(500)
-        res.send(error.message)
+        next(error)
     }
-
 }
 
 export default updateDream

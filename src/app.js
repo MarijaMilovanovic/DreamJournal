@@ -1,6 +1,7 @@
 import express, { json } from 'express';
 import mongoose from 'mongoose';
-import morganMiddleware from './logger';
+import errorHandler from './errorHandler';
+import morganMiddleware from './morganMiddleware';
 import dreamRoutes from './routes/dreams'
 import dreamTypesRoutes from './routes/dreamTypes'
 
@@ -14,6 +15,8 @@ const dbUrl = "mongodb://localhost:27017/DreamJournal"
 
 app.use('/', dreamRoutes)
 app.use('/types', dreamTypesRoutes)
+
+app.use(errorHandler)
 
 mongoose
 	.connect(dbUrl)

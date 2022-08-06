@@ -22,7 +22,7 @@ const dreamSchema = new Schema(
             enum: [DREAM_TYPE.EXCITING, DREAM_TYPE.HAPPY, DREAM_TYPE.SAD, DREAM_TYPE.SCARY]
         }
     },
-    {timestamps: true}
+    { timestamps: true }
 )
 
 dreamSchema.plugin(mongoosePaginate)

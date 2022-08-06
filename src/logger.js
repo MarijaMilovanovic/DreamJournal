@@ -1,5 +1,4 @@
 import winston from "winston";
-import morgan from "morgan";
 
 const { combine, timestamp, json } = winston.format;
 
@@ -14,13 +13,4 @@ const logger = winston.createLogger({
     transports: [new winston.transports.Console()]
 });
 
-const morganMiddleware = morgan(
-    ':method :url :status :res[content-length] - :response-time ms',
-    {
-        stream: {
-            write: (message) => logger.http(message.trim()),
-        }
-    }
-);
-
-export default morganMiddleware
+export default logger

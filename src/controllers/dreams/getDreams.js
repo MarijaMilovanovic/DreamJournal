@@ -1,12 +1,12 @@
 import Dream from "../../models/Dream"
 
 const getDreams = async (req, res) => {
-    const {id, pagination, sort, search, filter} = req.query
+	const { id, pagination, sort, search, filter } = req.query
 
-    let query = {}
+	let query = {}
 
-    if (id) query = { _id: id }
-    else if (search) {
+	if (id) query = { _id: id }
+	else if (search) {
 		const regex = new RegExp(search, 'i')
 		if (filter) {
 			query = {
@@ -33,7 +33,7 @@ const getDreams = async (req, res) => {
 			$and: [filter, { deleted: false }]
 		}
 	}
-    else query = { deleted: false }
+	else query = { deleted: false }
 
 	let sortObj = {}
 
@@ -49,17 +49,14 @@ const getDreams = async (req, res) => {
 		limit: pagination && pagination.limit ? pagination.limit : 25
 	}
 
-    try {
-        const response = await Dream.paginate(query, paginationOptions)
+	try {
+		const response = await Dream.paginate(query, paginationOptions)
 
-        res.status(200)
-	    res.send(response)
-    } catch (error) {
-        res.status(500)
-        res.send(error.message)
-    }
-
-	
+		res.status(200)
+		res.send(response)
+	} catch (error) {
+		next(error)
+	}
 }
 
 export default getDreams
