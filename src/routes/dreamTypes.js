@@ -1,11 +1,11 @@
 import express from 'express';
-import DREAM_TYPE from '../enums/dreamType';
+import getDreamTypes from '../controllers/dreamTypes';
 
 const router = express.Router()
 
 router.get('/', async (req, res) => {
     try {
-        const types = Object.values(DREAM_TYPE)
+        const types = getDreamTypes();
 
         res.statusCode = 200
         res.send(types)
