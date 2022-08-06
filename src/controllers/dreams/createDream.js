@@ -1,6 +1,6 @@
 import Dream from "../../models/Dream"
 
-const createDream = async (req, res) => {
+const createDream = async (req, res, next) => {
     const { title, description, date, type } = req.body
 
     try {
@@ -16,10 +16,7 @@ const createDream = async (req, res) => {
         res.status(200)
         res.send(dream)
     } catch (error) {
-        if (error.name === "ValidationError") res.status(400)
-        else res.status(500)
-
-        res.send(error)
+        next(error)
     }
 }
 

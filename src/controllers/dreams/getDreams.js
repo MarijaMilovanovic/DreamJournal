@@ -1,6 +1,6 @@
 import Dream from "../../models/Dream"
 
-const getDreams = async (req, res) => {
+const getDreams = async (req, res, next) => {
 	const { id, pagination, sort, search, filter } = req.query
 
 	let query = {}

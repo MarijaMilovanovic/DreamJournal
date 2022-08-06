@@ -1,6 +1,6 @@
 import Dream from '../../models/Dream'
 
-const deleteDream = async (req, res) => {
+const deleteDream = async (req, res, next) => {
   try {
     const { id } = req.body
 
