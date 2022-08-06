@@ -1,7 +1,7 @@
 import Dream from "../../models/Dream"
 
 const getDreams = async (req, res, next) => {
-	const { id, search, startDate, endDate, type, name, pagination, sortField, sortDirection, page, limit } = req.query
+	const { id, search, startDate, endDate, type, name, sortField, sortDirection, page, limit } = req.query
 
 	let query = {}
 	if (id) query = { _id: id }
