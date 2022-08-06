@@ -1,0 +1,655 @@
+{
+	"info": {
+		"_postman_id": "5f118a8c-3306-4934-9a54-6e323c498118",
+		"name": "Dream Journal Requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22653542"
+	},
+	"item": [
+		{
+			"name": "Get All Dream Types",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/types",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"types"
+					]
+				},
+				"description": "Fetch all dream types (Array of Strings)"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Happy Dream",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"title\": \"new happy dream :)\",\r\n    \"description\": \"Aliqua velit exercitation tempor voluptate do. Duis eiusmod nostrud consequat irure ad laborum occaecat consequat ullamco incididunt. Irure adipisicing aliquip aliquip non ex.\",\r\n    \"date\": \"2022-06-08\",\r\n    \"type\": \"HAPPY\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				},
+				"description": "Creates a new dream"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Sad Dream",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"title\": \"new sad dream :)\",\r\n    \"description\": \"Aliqua velit exercitation tempor voluptate do. Duis eiusmod nostrud consequat irure ad laborum occaecat consequat ullamco incididunt. Irure adipisicing aliquip aliquip non ex.\",\r\n    \"date\": \"2022-06-08\",\r\n    \"type\": \"SAD\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				},
+				"description": "Creates a new dream"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Exciting Dream",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"title\": \"new exciting dream :)\",\r\n    \"description\": \"Aliqua velit exercitation tempor voluptate do. Duis eiusmod nostrud consequat irure ad laborum occaecat consequat ullamco incididunt. Irure adipisicing aliquip aliquip non ex.\",\r\n    \"date\": \"2022-06-08\",\r\n    \"type\": \"EXCITING\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				},
+				"description": "Creates a new dream"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Scary Dream",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"title\": \"new scary dream :)\",\r\n    \"description\": \"Aliqua velit exercitation tempor voluptate do. Duis eiusmod nostrud consequat irure ad laborum occaecat consequat ullamco incididunt. Irure adipisicing aliquip aliquip non ex.\",\r\n    \"date\": \"2022-06-08\",\r\n    \"type\": \"SCARY\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				},
+				"description": "Creates a new dream"
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid Type for Create Dream",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"title\": \"Invalid Type\",\r\n    \"description\": \"Aliqua velit exercitation tempor voluptate do. Duis eiusmod nostrud consequat irure ad laborum occaecat consequat ullamco incididunt. Irure adipisicing aliquip aliquip non ex.\",\r\n    \"date\": \"2022-06-08\",\r\n    \"type\": \"IDK\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				},
+				"description": "Attempt to create dream with wrong type."
+			},
+			"response": []
+		},
+		{
+			"name": "Missing Title Create Dream",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"description\": \"This request has no title\",\r\n    \"date\": \"2022-06-08\",\r\n    \"type\": \"HAPPY\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				},
+				"description": "Attempt to create dram without a title."
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Dreams",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search by any field (title, type, description)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/?search=new",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "new"
+						}
+					]
+				},
+				"description": "This will return all dreams that contain the search term anywhere (name, description, type)"
+			},
+			"response": []
+		},
+		{
+			"name": "Search by title",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/?title=sunt ea sint",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "sunt ea sint"
+						}
+					]
+				},
+				"description": "Get dreams that match the title"
+			},
+			"response": []
+		},
+		{
+			"name": "Search by date range",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/?startDate=2022-03-24&endDate=2022-05-25",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2022-03-24"
+						},
+						{
+							"key": "endDate",
+							"value": "2022-05-25"
+						}
+					]
+				},
+				"description": "Get dreams between the date range.\n\nNOTE: This is refering to the date of dream, not createdAt timestamp.\n\nIf only startDate is provided, it will get dreams from that date and NEWER.\n\nIf only endDate is provided, it will get dreams from that date and older."
+			},
+			"response": []
+		},
+		{
+			"name": "Search by type",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/?type=SAD",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "SAD"
+						}
+					]
+				},
+				"description": "Get only drams that match the type."
+			},
+			"response": []
+		},
+		{
+			"name": "Search Combined Fields",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/?type=SAD&startDate=2022-03-24&endDate=2022-05-25",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "SAD"
+						},
+						{
+							"key": "startDate",
+							"value": "2022-03-24"
+						},
+						{
+							"key": "endDate",
+							"value": "2022-05-25"
+						}
+					]
+				},
+				"description": "Search dreams by multiple criteria"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Dreams With Pagination and Sorting",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/?page=2&limit=4&sortField=date&sortDirection=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						},
+						{
+							"key": "limit",
+							"value": "4"
+						},
+						{
+							"key": "sortField",
+							"value": "date"
+						},
+						{
+							"key": "sortDirection",
+							"value": "1"
+						}
+					]
+				},
+				"description": "Pagination and sorting example"
+			},
+			"response": []
+		},
+		{
+			"name": "All search params",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/?page=1&limit=4&sortField=date&sortDirection=1&search=a&startDate=2022-03-24&endDate=2022-05-25&type=SAD&title=cupidatat ex Lorem",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "4"
+						},
+						{
+							"key": "sortField",
+							"value": "date"
+						},
+						{
+							"key": "sortDirection",
+							"value": "1"
+						},
+						{
+							"key": "search",
+							"value": "a"
+						},
+						{
+							"key": "startDate",
+							"value": "2022-03-24"
+						},
+						{
+							"key": "endDate",
+							"value": "2022-05-25"
+						},
+						{
+							"key": "type",
+							"value": "SAD"
+						},
+						{
+							"key": "title",
+							"value": "cupidatat ex Lorem"
+						}
+					]
+				},
+				"description": "Example of all search params + pagination + sort"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Dream By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/?page=1&limit=4&sortField=date&sortDirection=1&search=a&startDate=2022-03-24&endDate=2022-05-25&type=SAD&title=cupidatat ex Lorem",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "4"
+						},
+						{
+							"key": "sortField",
+							"value": "date"
+						},
+						{
+							"key": "sortDirection",
+							"value": "1"
+						},
+						{
+							"key": "search",
+							"value": "a"
+						},
+						{
+							"key": "startDate",
+							"value": "2022-03-24"
+						},
+						{
+							"key": "endDate",
+							"value": "2022-05-25"
+						},
+						{
+							"key": "type",
+							"value": "SAD"
+						},
+						{
+							"key": "title",
+							"value": "cupidatat ex Lorem"
+						}
+					]
+				},
+				"description": "Get Dream by ID (Replace value with a valid ID)"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a dream",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/?id=62eecfe6155a94626aa09307",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "62eecfe6155a94626aa09307"
+						}
+					]
+				},
+				"description": "Deletes a dream. (Replace value of ID with a valid value)"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a dream with bad ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/?id=123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "123"
+						}
+					]
+				},
+				"description": "Attempts to delete a dream by using bad ID value. Should return error."
+			},
+			"response": []
+		},
+		{
+			"name": "Update all fields on a dream",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"62eed082889f199bfcc47719\",\r\n    \"type\": \"SCARY\",\r\n    \"description\": \"Updating the description\",\r\n    \"title\": \"A new title\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update only one field",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"62eed082889f199bfcc47719\",\r\n    \"type\": \"SAD\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Attempt to update dream with invalid id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"123\",\r\n    \"type\": \"SAD\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
