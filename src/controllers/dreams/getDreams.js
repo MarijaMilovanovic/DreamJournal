@@ -1,52 +1,59 @@
 import Dream from "../../models/Dream"
 
 const getDreams = async (req, res, next) => {
-	const { id, pagination, sort, search, filter } = req.query
+	const { id, search, startDate, endDate, type, name, pagination, sortField, sortDirection, page, limit } = req.query
 
 	let query = {}
-
 	if (id) query = { _id: id }
-	else if (search) {
-		const regex = new RegExp(search, 'i')
-		if (filter) {
-			query = {
-				$and: [
-					filter,
-					{ deleted: false },
-					{
-						$or: [{ title: regex }, { description: regex }, { date: regex }, { type: regex }]
-					}
-				]
-			}
-		} else {
-			query = {
-				$and: [
-					{ deleted: false },
-					{
-						$or: [{ title: regex }, { description: regex }, { date: regex }, { type: regex }]
-					}
-				]
-			}
-		}
-	} else if (filter) {
+	else if (search || startDate || endDate || type || name)
+	{
 		query = {
-			$and: [filter, { deleted: false }]
+			$and: [
+				{deleted: false}
+			]
 		}
+
+		if (search) {
+			const regex = new RegExp(search, 'i')
+			const searchObj = {$or: [{ title: regex }, { description: regex }, { type: regex }]}
+			query.$and.push(searchObj)
+		}
+
+		if (startDate || endDate)
+		{
+			const dateObj = {}
+
+			if (startDate && endDate)
+			{
+				dateObj.date = {
+						$gte: new Date(startDate),
+						$lt: new Date(endDate)
+				}
+			}
+			else if (startDate) dateObj.date = {$gte: new Date(startDate)}
+			else dateObj.date = {$lt: new Date(endDate)}
+
+			query.$and.push(dateObj)
+		}
+
+		if (type) query.$and.push({type})
+
+		if (name) query.$and.push({name})
 	}
 	else query = { deleted: false }
 
 	let sortObj = {}
 
-	if (sort && sort.field && sort.order) {
-		sortObj[sort.field] = sort.order
+	if (sortField && sortDirection) {
+		sortObj[sortField] = sortDirection
 	} else {
-		sortObj = { createdAt: -1 }
+		sortObj = { date: -1 }
 	}
 
 	const paginationOptions = {
 		sort: sortObj,
-		page: pagination && pagination.page ? pagination.page : 1,
-		limit: pagination && pagination.limit ? pagination.limit : 25
+		page: page ? page : 1,
+		limit: limit ? limit : 25
 	}
 
 	try {
