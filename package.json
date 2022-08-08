@@ -4,9 +4,10 @@
   "description": "Dream journal (REST API) - Backend Development Assignment",
   "main": "src/app.js",
   "scripts": {
-    "test": "jest",
+    "test": "npm run seed_test & jest",
     "start": "nodemon --exec babel-node src/app.js",
-    "seed": "babel-node src/seeds/seed.js"
+    "seed": "babel-node src/seeds/seed.js",
+    "seed_test": "set NODE_ENV=TEST& babel-node src/seeds/seed.js"
   },
   "repository": {
     "type": "git",

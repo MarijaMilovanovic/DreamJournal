@@ -11,4 +11,10 @@ https://www.mongodb.com/docs/manual/administration/install-community/
 4. Seed the database by running "npm run seed"
 5. Start the server by running "npm start"
 
+# Update 2022-08-08
+Added few api tests
+# note
+I am currently on windows machine and running those tests on UNIX system might require changing the following scripts:
 
+"test": "npm run seed_test && jest"
+"seed_test": "NODE_ENV=TEST babel-node src/seeds/seed.js"

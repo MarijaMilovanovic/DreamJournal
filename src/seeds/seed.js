@@ -5,7 +5,7 @@ import Dream from "../models/dream"
 
 dotenv.config()
 
-const {DB_URL_LOCAL} = process.env
+const {DB_URL_LOCAL, DB_URL_LOCAL_TEST, NODE_ENV} = process.env
 
 const seedDreams = [
 	{
@@ -179,7 +179,7 @@ const seedDreams = [
 ]
 
 mongoose
-.connect(DB_URL_LOCAL)
+.connect(NODE_ENV === "TEST" ? DB_URL_LOCAL_TEST : DB_URL_LOCAL)
 .then(() => {
   const seedDB = async () => {
     console.log("seeding")
