@@ -15,5 +15,5 @@ https://www.mongodb.com/docs/manual/administration/install-community/
 Added few api tests
 # note
 I am currently on windows machine and running those tests on UNIX system might require changing the following scripts:
-"test": "npm run seed_test && jest"
+"test": "npm run seed_test && jest" <br>
 "seed_test": "NODE_ENV=TEST babel-node src/seeds/seed.js"
